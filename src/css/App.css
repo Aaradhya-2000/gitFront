@@ -1340,3 +1340,13 @@ body {
     transform: translateY(0);
   }
 }
+
+
+@media (max-width:768px) {
+  .footer .footer-content{
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+}
