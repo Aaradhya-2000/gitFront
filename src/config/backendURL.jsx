@@ -1,6 +1,6 @@
 
 
-const BackendURL = "https://Taskmanagement.onrender.com/";
+const BackendURL = "https://taskmanagement.onrender.com/";
 
 
 export default BackendURL
