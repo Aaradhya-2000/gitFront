@@ -134,6 +134,54 @@ body {
     top: 0px;
     right: 0px;
   }
+
+  /* Header.css */
+.top-bar {
+  height: 50px;
+  background-color: #001f3f;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.user-icon {
+  font-size: 28px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.user-icon:hover {
+  color: #00aced;
+  transform: scale(1.1);
+}
+
+.custom-navbar {
+  border-top: 1px solid #333;
+}
+
+.brand {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.nav-link-hover {
+  color: #bbb !important;
+  transition: all 0.3s ease;
+}
+
+.nav-link-hover:hover {
+  color: white !important;
+  text-decoration: underline;
+}
+
   .dash .header .nav .search-bars {
     display: flex;
     flex-direction: row;
@@ -854,7 +902,7 @@ body {
   }
   
   .login-form {
-    background: #ffffff;
+    /* background: #ffffff; */
     padding: 2rem 3rem;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 128, 0, 0.15);
@@ -1001,13 +1049,13 @@ body {
 
 /* Glassmorphism login box */
 .login-wrapper {
-  background: rgba(255, 255, 255, 0.07);
+  /* background: rgba(255, 255, 255, 0.07); */
   backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 20px;
   padding: 40px 30px;
-  width: 90%;
-  max-width: 400px;
+  /* width: 90%; */
+  /* max-width: 400px; */
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   color: white;
 }
@@ -1148,3 +1196,147 @@ body {
  zb5Zcr1aSA2qynrP
 
 */
+
+
+
+
+
+
+
+/* General layout */
+.page-wrapper {
+  font-family: 'Segoe UI', sans-serif;
+  /* background-color: #ecfdf5; */
+  min-height: 100vh;
+  padding: 40px 20px;
+  color: #1e3a3a;
+}
+
+/* Login box */
+.login-wrapper {
+  /* max-width: 400px; */
+  /* margin: auto; */
+  /* background-color: #d1fae5; */
+  padding: 30px 25px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.login-form h2 {
+  text-align: center;
+  color: #065f46;
+  margin-bottom: 25px;
+}
+
+.login-form label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+  color: #047857;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 18px;
+  border: 1px solid #a7f3d0;
+  border-radius: 6px;
+  outline: none;
+  background-color: #f0fdf4;
+}
+
+.login-form input:focus {
+  border-color: #10b981;
+  box-shadow: 0 0 4px rgba(16, 185, 129, 0.5);
+}
+
+.login-form button {
+  width: 100%;
+  background-color: #10b981;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background-color: #059669;
+}
+
+/* Admin Hero Section */
+.admin-hero {
+  margin-top: 60px;
+  text-align: center;
+  background: linear-gradient(135deg, #34d399, #10b981);
+  color: white;
+  padding: 60px 20px;
+  border-radius: 10px;
+  animation: fadeIn 1s ease;
+}
+
+.admin-hero h2 {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.admin-hero p {
+  font-size: 18px;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* Benefits Section */
+.admin-benefits {
+  margin: 60px auto;
+  max-width: 600px;
+  background-color: #bbf7d0;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+.admin-benefits h3 {
+  color: #065f46;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.admin-benefits ul {
+  list-style: none;
+  padding: 0;
+}
+
+.admin-benefits li {
+  background-color: #f0fdf4;
+  border-left: 5px solid #10b981;
+  padding: 10px 15px;
+  margin: 10px 0;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+/* Footer */
+.admin-footer {
+  text-align: center;
+  background-color: #065f46;
+  color: #d1fae5;
+  padding: 20px;
+  margin-top: 60px;
+  border-radius: 10px 10px 0 0;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

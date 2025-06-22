@@ -1,19 +1,16 @@
 import React, { useState } from "react";
-// import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import BackendURL from "../config/backendURL";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { MdEmail, MdLock } from "react-icons/md"; // Email and password icons
+// import './LoginForm.css'; // Custom styling
 
 const LoginForm = () => {
-  // const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,29 +32,39 @@ const LoginForm = () => {
   return (
     <div className="login-wrapper">
       <form className="login-form" onSubmit={handleSubmit}>
-        <h2>Login</h2>
+        <h2>User Login</h2>
 
-        <label htmlFor="userId">Email ID</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Enter your email"
-          required
-        />
+        <div className="input-group">
+          <label htmlFor="email" style={{color:'white'}}>
+            <MdEmail className="input-icon" />
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter your email"
+            required
+          />
+        </div>
 
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Enter your password"
-          required
-        />
+        <div className="input-group">
+          <label htmlFor="password" style={{color:'white'}}>
+            <MdLock className="input-icon" />
+            Password
+          </label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter your password"
+            required
+          />
+        </div>
 
-        <button type="submit">Login</button>
-
- 
+        <button type="submit" className="login-btn">Login</button>
       </form>
 
       <ToastContainer position="top-right" autoClose={3000} />
