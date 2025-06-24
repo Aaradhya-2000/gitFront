@@ -1,6 +1,2 @@
-
-
-const BackendURL = "https://taskmanagement.onrender.com/";
-
-
-export default BackendURL
+const BackendURL = "https://gitback.onrender.com/";
+export default BackendURL;

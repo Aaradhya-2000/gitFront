@@ -3,7 +3,8 @@ import axios from "axios";
 import BackendURL from "../config/backendURL";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
+import { Form, Button, Container } from "react-bootstrap";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -14,9 +15,13 @@ const Home = () => {
     e.preventDefault();
     try {
       const api = `${BackendURL}admin/logincheck`;
-      const response = await axios.post(api, { adminId, password });
 
-      // Show success toast
+      const response = await axios.post(
+        api,
+        { adminId, password },
+        { withCredentials: true }
+      );
+
       toast.success(response.data.msg, {
         position: "top-center",
         autoClose: 2000,
@@ -24,12 +29,10 @@ const Home = () => {
 
       localStorage.setItem("adminuser", response.data.admin.name);
 
-      // Navigate after a short delay so toast can be seen
       setTimeout(() => {
-        navigate("dashboard");
+        navigate("/dashboard");
       }, 2000);
     } catch (err) {
-      // Show error toast
       toast.error(err.response?.data?.msg || "Login failed", {
         position: "top-center",
         autoClose: 3000,
@@ -38,38 +41,35 @@ const Home = () => {
   };
 
   return (
-    <div className="page-wrapper">
-      <div className="login-wrapper">
-        <form className="login-form" onSubmit={handleSubmit}>
-          <h2>Admin Login</h2>
-
-          <label htmlFor="adminId">Admin ID</label>
-          <input
+    <Container>
+      <Form onSubmit={handleSubmit}>
+        <h2>Admin Login</h2>
+        <Form.Group className="mb-3" controlId="formAdminId">
+          <Form.Label>Admin ID</Form.Label>
+          <Form.Control
             type="text"
-            id="adminId"
-            name="adminId"
             value={adminId}
             onChange={(e) => setAdminId(e.target.value)}
             placeholder="Enter your Admin ID"
             required
           />
-
-          <label htmlFor="password">Password</label>
-          <input
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
             type="password"
-            id="password"
-            name="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Enter your password"
             required
           />
-
-          <button type="submit">Login</button>
-        </form>
-      </div>
+        </Form.Group>
+        <Button variant="dark" type="submit" className="nav-link-hover w-100">
+          Login
+        </Button>
+      </Form>
       <ToastContainer />
-    </div>
+    </Container>
   );
 };
 

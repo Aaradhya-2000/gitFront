@@ -16,35 +16,30 @@ import ForgotPass from './pages/forgotPass'
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-  <Route path="/" element={<Layout />}>
-    <Route index element={<Home />} />
-    <Route path="forgotPass" element={<ForgotPass />} /> {/* ← move here */}
-  </Route>
-</Routes>
-{/* Hello  */}
-     
-        <Routes>
-           <Route path="dashboard" element={<Dashboard/>}>
-             <Route index element={<DashHome/>}/>
-             <Route path="createuser" element={<CreateUser/>}/>
-             <Route path='assigntask' element={<AsignTask/>}/>
-             <Route path='taskDetail' element={<TaskDetail/>}/>
-           
-           
-           </Route>
-           
-        </Routes>
-        <Routes>
-        <Route path='userdashboard' element={<UserDashboard/>}>
-        <Route index element={<UserDashHome/>}/>
-        <Route path='mytask' element={<MyTask/>}/>
-        <Route path='forgotPass' element={<ForgotPass/>}/>
-        </Route>
-        </Routes>
-    
-
-      </BrowserRouter>
+    <Routes>
+      {/* Layout route with nested children */}
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="forgotPass" element={<ForgotPass />} />
+      </Route>
+  
+      {/* Admin Dashboard */}
+      <Route path="/dashboard" element={<Dashboard />}>
+        <Route index element={<DashHome />} />
+        <Route path="createuser" element={<CreateUser />} />
+        <Route path="assigntask" element={<AsignTask />} />
+        <Route path="taskDetail" element={<TaskDetail />} />
+      </Route>
+  
+      {/* User Dashboard */}
+      <Route path="/userdashboard" element={<UserDashboard />}>
+        <Route index element={<UserDashHome />} />
+        <Route path="mytask" element={<MyTask />} />
+        <Route path="forgotPass" element={<ForgotPass />} />
+      </Route>
+    </Routes>
+  </BrowserRouter>
+  
   )
 }
 
